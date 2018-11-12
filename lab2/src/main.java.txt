@@ -1,0 +1,77 @@
+package lab2;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		PrintWriter writer = new PrintWriter("D://the-file-name.txt");
+		
+		
+
+		Abonent A = new Abonent();
+		Abonent B = new Abonent();
+	
+		
+		
+		System.out.print("Введите A ");
+		writer.println("Введите A ");
+		Scanner scan = new Scanner(System.in);
+		A.A = scan.nextInt();
+		writer.print(A.A);
+		//B.A = scan.nextInt();
+		B.A=A.A;
+		//System.out.print(A.A);
+		//System.out.print(B.A);
+		
+		System.out.print("Введите P ");
+		writer.println("Введите P ");
+		A.P = scan.nextInt();
+		writer.println(A.P);
+	//	A.P = scan.nextInt();
+		B.P=A.P;		
+		
+		System.out.print("Введите X для Алисы ");
+		writer.println("Введите X для Алисы");
+		A.X = scan.nextInt();
+		writer.println(A.X);
+		int X1 =A.X;
+		//System.out.println(X1);
+		 
+		System.out.print("Введите X для Боба ");
+		writer.println("Введите X для Боба");
+		B.X = scan.nextInt();
+		writer.println(B.X);
+		int X2 = B.X;
+		
+	//	if(1<(A.A)&&(A.A)<((A.P)-1)) {
+		int MassageA = A.FindMessage();
+		System.out.println("Сформированное сообщение Алисы : " + MassageA);
+		writer.println("Сформированное сообщение Алисы : " + MassageA);
+		
+		int MassageB = B.FindMessage();
+		System.out.println("Сформированное сообщение Боба : " + MassageB);
+		writer.println("Сформированное сообщение Боба : " + MassageB);
+
+		
+		System.out.println("передача сообщений ...");
+		writer.println("передача сообщений ...");
+
+		
+		int NewMassageB = B.NewMassage(MassageA);
+		int NewMassageA = A.NewMassage(MassageB);
+		System.out.println("Алиса Сформировала новое сообщение: "+ NewMassageA);
+		writer.println("Алиса Сформировала новое сообщение: "+ NewMassageA);
+		System.out.println("Боб Сформировал новое сообщение: "+ NewMassageB);
+		writer.println("Боб Сформировал новое сообщение: "+ NewMassageB);
+		
+		writer.close();
+
+	}
+		//else {System.out.println("Ошибка");}
+//	}
+
+}
